@@ -1,24 +1,61 @@
 import React, { Component } from 'react';
-import {observer, inject} from 'mobx-react'
-// import logo from './logo.svg';
 import './App.css';
-
-
-// @observer
+// import Home from './Components/Home';
+// import Login from './Components/Login';
+import fire from './firebase';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { observer, inject } from 'mobx-react'
+import Links from './Components/Links';
+import LandingPage from './Components/Home/LandingPage';
+// import Something from './Components/Something';
+import Login from './Components/Login'
+// import AppartmentList from './Components/Buy/AppartmentsList';
+// import SpinningPic from './Components/Home/SpinningPic';
 class App extends Component {
-  constructor(){
-    
-  }
-	render() {
-    return(
-      <div>
-        <h1>YO chen</h1>
-      </div>
-	      )
-	}
+ constructor() {
+   super();
+   this.state = ({
+     user: null,
+   });
+ }
+ componentDidMount() {
+   this.authListener();
+ }
+ authListener = () => {
+   fire.auth().onAuthStateChanged((user) => {
+     console.log(user);
+     if (user) {
+       this.setState({ user });
+       localStorage.setItem('user', user.uid);
+     } else {
+       this.setState({ user: null });
+       localStorage.removeItem('user');
+     }
+   });
+ }
+ render() {
+   return (
+     <Router>
+       <div>
+         <div>
+           {this.state.user ?
+             (
+               <div>
+               <Links />
+               <Route exact path='/' render={() => <LandingPage />} />
+               {/* <Route exact path='/something' render={() => <Something />} /> */}
+             </div>
+             )
+             : (<Login />)}
+         </div>
+         {/* <Route exact path='/buy' render={() => <AppartmentList />} /> */}
+       </div>
+     </Router>
+   )
+ }
 }
+export default App;
 
-export default App
 
 
 
