@@ -11,6 +11,7 @@ import LandingPage from './Components/Home/LandingPage';
 import Login from './Components/Login'
 import Register from './Components/Register';
 import NewAppartment from './Components/add-appartment';
+import Buy from './Components/Buy';
 // import AppartmentList from './Components/Buy/AppartmentsList';
 // import SpinningPic from './Components/Home/SpinningPic';
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
  }
  authListener = () => {
    fire.auth().onAuthStateChanged((user) => {
-     console.log(user);
+    //  console.log(user);
      if (user) {
        this.setState({ user });
        localStorage.setItem('user', user.uid);
@@ -46,6 +47,7 @@ class App extends Component {
                <Links />
                <Route exact path='/' render={() => <LandingPage />} />
                <Route exact path='/addAppartment' render={() => <NewAppartment />} />
+               <Route exact path='/buy' render={() => <Buy />} />
              </div>
              )
              : (

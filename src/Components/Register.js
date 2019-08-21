@@ -40,7 +40,8 @@ class Register extends Component {
       firstName: this.state.first,
       lastName: this.state.last,
       isApproved: this.state.isApproved,
-      firebase_uid: this.state.firebase_uid
+      firebase_uid: this.state.firebase_uid,
+      phone: this.state.phone
     }
     axios.post("http://localhost:5000/addUser", user)
   }
@@ -68,6 +69,7 @@ class Register extends Component {
           <p>Phone Number :</p>
           <input className="form-control" name="phone" onChange={this.handleInput} placeholder="Phone" />
         </div>
+        
         <button onClick={this.signToFB} className="waves-effect waves-light btn">Register</button>
        
       </div >
