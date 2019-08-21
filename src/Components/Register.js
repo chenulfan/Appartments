@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import fire from '../firebase';
 import { async } from 'q';
+import axios from 'axios';
+
 class Register extends Component {
     constructor(){
         super()
@@ -20,7 +22,25 @@ class Register extends Component {
         })
         console.log(this.state)
     }
-    
+    signToFB = () => {
+        fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+        }).then((u) => { console.log(u) })
+          .catch((error) => {
+            console.log(error);
+          })
+      }
+      addUser = () => {
+        this.signToFB()
+        const user = {
+          email: this.state.email,
+          password: this.state.password,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          isApproved: this.state.isApproved
+        }
+        axios.post("'http://localhost:5000/addUser", user)
+      }
+
  render() {
    return (
      <div className="login-container">
