@@ -18,13 +18,7 @@ class Login extends Component {
      console.log(error);
    });
  }
- signup = () => {
-   fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-   }).then((u) => { console.log(u) })
-     .catch((error) => {
-       console.log(error);
-     })
- }
+
  render() {
    return (
      <div className="login-container">
