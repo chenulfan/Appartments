@@ -9,6 +9,7 @@ import Links from './Components/Links';
 import LandingPage from './Components/Home/LandingPage';
 // import Something from './Components/Something';
 import Login from './Components/Login'
+import Register from './Components/Register';
 // import AppartmentList from './Components/Buy/AppartmentsList';
 // import SpinningPic from './Components/Home/SpinningPic';
 class App extends Component {
@@ -43,10 +44,15 @@ class App extends Component {
                <div>
                <Links />
                <Route exact path='/' render={() => <LandingPage />} />
-               {/* <Route exact path='/something' render={() => <Something />} /> */}
              </div>
              )
-             : (<Login />)}
+             : (
+                <div>
+                  <Route exact path='/' render={() =>  <Login />} />
+                  <Route exact path='/register' render={() => <Register />} />
+                 
+                </div>
+             )}
          </div>
          {/* <Route exact path='/buy' render={() => <AppartmentList />} /> */}
        </div>

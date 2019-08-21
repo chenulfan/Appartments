@@ -36,9 +36,8 @@ class Login extends Component {
          <p>Password :</p>
          <input type="password" value={this.state.password} onChange={this.handleChange} type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
        </span>
-       <a >Log in</a>
        <span>
-         <p>Dont have a user ? <Link to='/login' className='link'>Resgister</Link></p>
+         <p>Dont have a user ? <Link to='/register' className='link'>Resgister</Link></p>
        </span>
      <button type="submit" onClick={this.login} class="btn btn-primary" className="waves-effect waves-light btn" >Login</button>
 </div >
