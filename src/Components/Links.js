@@ -8,12 +8,13 @@ class Links extends Component {
    render() {
        return (
            <div className="navbar dib bg-black br3 pa3 ma2 bw2 shadow-5 ">
-               <Link to='/' className='link ma2 ref'>Home</Link>
-               <Link to='/buy' className='link ma2 ref'>Buy</Link>
-               <Link to='/rent' className='link ma2 ref'>Rent</Link>
-               <Link to='/login' className='link ma2 ref'>Login</Link>
-               <Link to='/addAppartment' className='link ma2 ref'> Add Appartment</Link>
-               <Link to='/' className='link ma2 ref' onClick={this.logout}>logout</Link>
+               <Link to='/' className='link ma2 ref'> Home </Link>
+               <Link to='/buy' className='link ma2 ref'> Buy </Link>
+               <Link to='/rent' className='link ma2 ref'> Rent </Link>
+               <Link to='/favorites' className='link ma2 ref'> Favorites </Link>
+               <Link to='/addAppartment' className='link ma2 ref'> Add Appartment </Link>
+               <Link to='/chat' className='link ma2 ref' > Chat </Link>
+               <Link to='/' className='link ma2 ref' onClick={this.logout}> Logout </Link>
            </div>
        )
    }

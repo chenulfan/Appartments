@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Axios from 'axios';
 
-class Appartment extends Component {
+class FavAppartment extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,11 +23,9 @@ class Appartment extends Component {
         let contact = await Axios.get(`http://localhost:5000/contact/${owner_id}`)
         return contact
     }
-    addAppartmentToFav = async () =>{
-        const id_u = this.state.contact.id
-        const id_app =  this.props.appartment.id
-        // console.log(id_u, id_app)
-        Axios.post(`http://localhost:5000/addFAv`, {id_u, id_app})
+    removeFromFav = async () =>{
+        const id = this.props.appartment.id
+        Axios.get(`http://localhost:5000/remove/${id}`)
     }
     render() {
         const appartment = this.props.appartment
@@ -39,7 +37,7 @@ class Appartment extends Component {
                     <img src={appartment.img} />
                 </div>
                 <div className="apartmentData">
-                    <button onClick={this.addAppartmentToFav}> add to fav</button>
+                    <button onClick={this.removeFromFav}> X</button>
                     <span> Price: {appartment.price} </span>
                     <span> Rooms: {appartment.rooms} </span>
                     <span> Adress: {appartment.location} </span>
@@ -57,4 +55,4 @@ class Appartment extends Component {
     }
 }
 
-export default Appartment
+export default FavAppartment
