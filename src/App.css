@@ -9,14 +9,12 @@
   margin-top :3%;
   border-radius: 15px;
   box-shadow:0px 0px 15px grey;
+  
+}
+span{
+  margin : 5px;
 }
 
-.appartment-card{
-  width : 500px;
-  height: 400px;
-  border-radius: 18px;
-  background-color: rgba(255, 213, 158, 0.714);
-}
 
 .appartments-container{
   display: grid;
@@ -32,18 +30,27 @@
 .apartment{
    margin-left: 10px;
    margin-top:10px;
-   background-color: var(--lighter);
+   background-color: rgba(47, 47, 47, 0.328);
    display: grid;
-   grid-template-columns: repeat(2,1fr);
+   grid-template-rows: 60% 40% ;
    color: var(--shade);
-   width:35vw;
-   height:25vw;
+   width:45vw;
+   height:35vw;
    padding:10px;
    transition: 0.4s;
    border-radius: 15px;
-   box-shadow: 10px 10px 5px var(--light);
+   box-shadow: 10px 10px 5px grey;
    font-size: calc(5px + 1vw);
-   color:var(--darker)
+   color:var(--darker);
+   margin-left:9%;
+}
+.app-list-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.row-picture-data-grid{
+  display: grid;
+  grid-template-columns:  1fr 1fr;
 }
 .apartmentData{
    display: flex;
@@ -54,3 +61,93 @@ img{
 width:80%;
 height:60%;
 }
+/* ---------------------------------------- */
+
+h2{
+  font-size: 18px;
+  padding: 10px 20px;
+  color: #575ed8;
+}
+
+#chat-containter{
+  max-width: 600px;
+  margin: 30px auto;
+  border: 1px solid #ddd;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+  border-radius: 2px;
+}
+
+#chat-window{
+  height: 400px;
+  overflow: auto;
+  background: #f9f9f9;
+}
+
+#output p{
+  padding: 14px 0px;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #555;
+}
+
+#feedback p{
+  color: #aaa;
+  padding: 14px 0px;
+  margin: 0 20px;
+}
+
+#output strong{
+  color: #575ed8;
+}
+
+.label-chat{
+  box-sizing: border-box;
+  display: block;
+  padding: 10px 20px;
+}
+
+.inp{
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: #eee;
+  border: 0;
+  display: block;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  /* font-family: Nunito; */
+  font-size: 16px;
+}
+
+.btn-Chat{
+  background: #575ed8;
+  color: #fff;
+  font-size: 18px;
+  border: 0;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  cursor: pointer;
+}
+.btn-Chat:hover {
+  background: #61d5e2;
+} 
+.popUp{
+  position: absolute;
+  border: 1px solid black;
+  background: #2a2923;
+  z-index: 2;
+  width: 300px;
+  height: 50px;
+  padding: 15px;
+  padding-left: 35px ;
+  border-radius: 5px;
+  left: 500px;
+}
+.appartment-card{
+  width : 600px;
+  height: 720px;
+  border-radius: 18px;
+  background-color: rgba(255, 213, 158, 0.714);
+  color:black;
+ }

@@ -12,7 +12,6 @@ class LandingPage extends Component {
             
             <div>
              <SpinningPic/>
-             <button onClick={this.some} className="waves-effect waves-light btn">sdadsdas</button>
             </div>
         )
     }

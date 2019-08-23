@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Axios from 'axios';
 
-class FavAppartment extends Component {
+class Appartment extends Component {
     constructor(props) {
         super(props)
         this.state = {
             owner_id: props.appartment.owner_id,
-            contact: {}
+            contact: {},
+
         }
     }
     componentDidMount = async () => {
@@ -23,10 +24,13 @@ class FavAppartment extends Component {
         let contact = await Axios.get(`http://localhost:5000/contact/${owner_id}`)
         return contact
     }
-    removeFromFav = async () => {
-        const id = this.props.appartment.id
-        Axios.get(`http://localhost:5000/remove/${id}`)
+    addAppartmentToFav = async () => {
+        const id_u = this.state.contact.id
+        const id_app = this.props.appartment.id
+        // console.log(id_u, id_app)
+        Axios.post(`http://localhost:5000/addFAv`, { id_u, id_app })
     }
+   
     render() {
         const appartment = this.props.appartment
         // console.log(this.props.appartment.id)
@@ -35,31 +39,35 @@ class FavAppartment extends Component {
             <div className="apartment">
                 <div className="row-picture-data-grid">
                     <div className="apartmentPicture">
-                        <img src={appartment.img} with='200px' height='200px' />
+                        <img src={appartment.img} width='200px' height='200px' />
                     </div>
 
                     <div className="apartmentData">
-
-                        <button onClick={this.removeFromFav}> X</button>
-                        <span> Price: {appartment.price} </span>
-                        <span> Rooms: {appartment.rooms} </span>
-                        <span> Adress: {appartment.location} </span>
+                        <span> Price : {appartment.price} </span>
+                        <span> Rooms : {appartment.rooms} </span>
+                        <span> Adress : {appartment.location} </span>
                         {this.state.contact ? <div>
-                            <div> Email:  {this.state.contact.email} </div>
-                            <div> name:  {this.state.contact.firstName} {this.state.contact.lastName} </div>
-                            <div> phone:  {this.state.contact.phone} </div>
+                            <p>Contact Info </p>
+                            <div> Email :  {this.state.contact.email} </div>
+                            <div> Name :  {this.state.contact.firstName} {this.state.contact.lastName} </div>
+                            <div> Phone :  {this.state.contact.phone} </div>
                         </div> : null}
-                        <span> Uploaded: {appartment.uploaded}  </span>
+                        <span> Uploaded : {appartment.uploaded}  </span>
+                        <button onClick={this.addAppartmentToFav}> add to fav</button>
 
+
+                        
                     </div>
                 </div>
 
-                <span> Description:
-                <div>  {appartment.description} </div>
+                <span> Description :
+                    <div>  {appartment.description} </div>
+
                 </span>
             </div>
+            
         )
     }
 }
 
-export default FavAppartment
+export default Appartment

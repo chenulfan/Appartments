@@ -13,7 +13,8 @@ import Register from './Components/Register';
 import NewAppartment from './Components/add-appartment';
 import Buy from './Components/Buy';
 import Favorites from './Favorites';
-import Chat from './Components/Home/Chat';
+import Chat from './Components/Chat';
+import Rent from './Components/Rent';
 // import AppartmentList from './Components/Buy/AppartmentsList';
 // import SpinningPic from './Components/Home/SpinningPic';
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
                <Route exact path='/' render={() => <LandingPage />} />
                <Route exact path='/addAppartment' render={() => <NewAppartment />} />
                <Route exact path='/buy' render={() => <Buy />} />
+               <Route exact path='/rent' render={() => <Rent />} />
                <Route exact path='/favorites' render={() => <Favorites />} />
                <Route exact path='/chat' render={() => <Chat />} />
              </div>

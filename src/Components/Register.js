@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import fire from '../firebase';
 import { async } from 'q';
 import axios from 'axios';
+import "./register.css";
 class Register extends Component {
   constructor() {
     super()
@@ -59,33 +60,30 @@ class Register extends Component {
   }
 
 render() {
-  return (
-    <div className="login-container">
-      <div>
-        <p>Email :</p>
-        <input type="text" name="email" type="email" name="email" onChange={this.handleInput} placeholder="Enter email" />
+  return <div className="putData">
+  <div className="question">
+        <input type="text" autocomplete="off" name="email" type="email" name="email" onChange={this.handleInput}  required/>
+        <label>Email Address</label>
       </div>
-      <div>
-        <p>First Name :</p>
-        <input type="text" name="first" type="text" onChange={this.handleInput} placeholder="Enter First Name" />
+      <div className="question">
+        <input type="text" autocomplete="off" name="first" type="text" onChange={this.handleInput}  required/>
+        <label>First Name</label>
       </div>
-      <div>
-        <p>Last Name :</p>
-        <input type="text" name="last" type="text" onChange={this.handleInput} placeholder="Enter Last Name" />
+      <div className="question">
+        <input type="text" autocomplete="off" name="last" type="text" onChange={this.handleInput} required />
+        <label>Last Name</label>
       </div>
-      <div>
-        <p>Password :</p>
-        <input type="password" name="password" onChange={this.handleInput} type="password" placeholder="Password" />
+      <div className="question" >
+        <input type="password" name="password" onChange={this.handleInput} type="password" required />
+        <label>Password</label>
       </div>
-      <div>
-        <p>Phone Number :</p>
-        <input className="form-control" name="phone" onChange={this.handleInput} placeholder="Phone" />
+      <div className="question">
+        <input name="phone" autocomplete="off" onChange={this.handleInput}  required/>
+        <label>Phone</label>
       </div>
+      <button onClick={this.signToFB} >Register</button>
+  </div>
 
-      <button onClick={this.signToFB} className="waves-effect waves-light btn">Register</button>
-
-    </div >
-  );
 }
 }
 export default Register;

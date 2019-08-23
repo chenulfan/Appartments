@@ -1,0 +1,43 @@
+:root {
+  --white: rgba(209, 234, 235, 1);
+  --lighter: rgba(137, 219, 255, 1);
+  --light: rgba(0, 173, 242, 1);
+  --darker: rgba(50, 125, 229, 1);
+  --shade: #0e3383 ;
+  }
+  body {
+    background: var(--darker)
+  }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--shade);
+  box-shadow: 5px 5px 5px rgb(29, 34, 104);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.2s , color 0.2s;  
+}
+
+li a:hover:not(.login) {
+  background-color: var(--light);
+  color: var(--white);
+}
+.login:hover{
+  background-color:var(--shade);
+}
+ul> li:nth-child(4) {
+  float: right;
+}

@@ -1,0 +1,218 @@
+
+      :root {
+        --white: rgba(209, 234, 235, 1);
+        --lighter: rgba(137, 219, 255, 1);
+        --light: rgba(0, 173, 242, 1);
+        --darker: rgba(50, 125, 229, 1);
+        --shade: #0e3383 ;
+        }
+      
+      .transition, .putData button, .putData .question label, .putData .question input {
+        -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+        -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+        -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+        transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+      }
+      
+      * {
+        font-weight: light;
+      }
+      
+      .putData {
+        position: relative;
+        display: inline-block;
+        width: 25vw;
+        align-items: center;
+        min-width: 300px;
+        box-sizing: border-box;
+        padding: 30px 25px;
+        background-color: var(--darker);
+        border-radius: 40px;
+        margin: 40px 0;
+        left: 50%;
+        -moz-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+      }
+      .putData h1 {
+        text-align: center;
+        color: var(--lighter);
+        font-weight: 100;
+        letter-spacing: 0.01em;
+        margin-left: 15px;
+        margin-bottom: 35px;
+      }
+      .putData button {
+        margin: 25px auto 0;
+        background-color: var(--light);
+        border: 0px solid;
+        line-height: 0;
+        font-size: 17px;
+        display:block;
+        box-sizing: border-box;
+        padding: 20px 15px;
+        border-radius: 3px;
+        color: var(--white) ;
+        font-weight: 100;
+        letter-spacing: 0.01em;
+        position: relative;
+        z-index: 1;
+        box-shadow: 10px 10px 5px var(--shade);
+        
+      }
+      .putData button:hover, .putData button:focus {
+        padding: 25px;
+        color: var(--light);
+        background-color: var(--white);
+      }
+      .putData .question {
+        position: relative;
+        padding: 10px 0;
+      }
+      .putData .question:first-of-type {
+        padding-top: 0;
+      }
+      .putData .question:last-of-type {
+        padding-bottom: 0;
+      }
+      .putData .question label {
+        transform-origin: left center;
+        color:var(--lighter);
+        font-weight: 100;
+        letter-spacing: 0.01em;
+        font-size: 17px;
+        box-sizing: border-box;
+        padding: 10px 15px;
+        display: block;
+        position: absolute;
+        margin-top: -40px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .putData .question input {
+        appearance: none;
+        background-color: none;
+        border: 1px solid var(--lighter);
+        line-height: 0;
+        font-size: 17px;
+        max-width: 300px;
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        padding: 10px 15px;
+        border-radius: 3px;
+        color: #ff4a56;
+        font-weight: 100;
+        letter-spacing: 0.01em;
+        position: relative;
+        z-index: 1;
+        box-shadow: 10px 10px 5px var(--shade);
+
+
+      }
+      .putData .question input:focus {
+        outline: none;
+        background: var(--lighter);
+        color: white;
+        margin-top: 30px;
+      }
+      .putData .question input:valid {
+        margin-top: 30px;
+      }
+      .putData .question input:focus ~ label {
+        -moz-transform: translate(0, -35px);
+        -ms-transform: translate(0, -35px);
+        -webkit-transform: translate(0, -35px);
+        transform: translate(0, -35px);
+      }
+      .putData .question input:valid ~ label {
+        text-transform: uppercase;
+        font-style: italic;
+        -moz-transform: translate(5px, -35px) scale(0.6);
+        -ms-transform: translate(5px, -35px) scale(0.6);
+        -webkit-transform: translate(5px, -35px) scale(0.6);
+        transform: translate(5px, -35px) scale(0.6);
+      }
+
+
+
+      .radio {
+        margin: 16px 0;
+        display: block;
+        cursor: pointer;
+      }
+      .radio input {
+        display: none;
+      }
+      .radio input + span {
+        line-height: 22px;
+        height: 22px;
+        padding-left: 22px;
+        display: block;
+        position: relative;
+      }
+      .radio input + span:not(:empty) {
+        padding-left: 30px;
+      }
+      .radio input + span:before, .radio input + span:after {
+        content: '';
+        width: 22px;
+        height: 22px;
+        display: block;
+        border-radius: 50%;
+        left: 0;
+        top: 0;
+        position: absolute;
+      }
+      .radio input + span:before {
+        background: #d1d7e3;
+        transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+      }
+      .radio input + span:after {
+        background: #fff;
+        transform: scale(0.78);
+        transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+      }
+      .radio input:checked + span:before {
+        transform: scale(1.04);
+        background: #5d9bfb;
+      }
+      .radio input:checked + span:after {
+        transform: scale(0.4);
+        transition: transform 0.3s ease;
+      }
+      .radio:hover input + span:before {
+        transform: scale(0.92);
+      }
+      .radio:hover input + span:after {
+        transform: scale(0.74);
+      }
+      .radio:hover input:checked + span:after {
+        transform: scale(0.4);
+      }
+      
+      label:not(div.question>label){
+        padding: 10px;
+        background: var(--darker); 
+        display: inlineblo;
+        color: #fff;
+         }
+         .addFile{
+             margin-top: 15px;
+             margin-bottom: 12px;
+         }
+    .radio-button{
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        justify-items: center;
+    }
+    
+    /* div.putData>label {
+        background: var(--darker);
+        color:var(--white);
+        align-self: auto;
+    } */
+   /* input[type="file"] {
+        display: none;
+    } */

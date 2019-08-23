@@ -25,6 +25,7 @@ function SpinningPic() {
       <Gallery
         style={{
           background: "transparent",
+          marginTop: "10px",
           height: "70vh",
           width: "100vw",
           boxShadow: "0px 0px 20px grey"

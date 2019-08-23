@@ -1,0 +1,166 @@
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
+    
+:root {
+--white: rgba(209, 234, 235, 1);
+--lighter: rgba(137, 219, 255, 1);
+--light: rgba(0, 173, 242, 1);
+--darker: rgba(50, 125, 229, 1);
+--shade: #0e3383 ;
+}
+
+    *{
+box-sizing: border-box;
+}
+
+
+body {
+/* overflow-x: hidden; */
+font-weight: 300;
+color:var(--white);
+background: var(--white);
+}
+
+
+.row {
+max-width: 800px;
+margin: 0 auto;
+padding: 60px 30px;
+background: var(--darker);
+position: relative;
+z-index: 1;
+text-align: center;
+}
+.row:before {
+position: absolute;
+content: "";
+display: block;
+top: 0;
+left: -5000px;
+height: 100%;
+width: 15000px;
+z-index: -1;
+background: inherit;
+}
+.row:first-child {
+padding: 40px 30px;
+}
+
+.row span {
+position: relative;
+display: inline-block;
+margin: 30px 10px;
+}
+
+
+
+.gate {
+display: inline-block;
+width: 215px;
+padding: 10px 0 10px 15px;
+font-weight: 400;
+color: var(--light);
+background: var(--white);
+border: 0;
+border-radius: 3px;
+outline: 0;
+text-indent: 65px;
+transition: all .3s ease-in-out;
+box-shadow: 10px 10px 5px var(--shade);
+}
+.gate::-webkit-input-placeholder {
+color: var(--white);
+text-indent: 0;
+font-weight: 300;
+}
+.gate + label {
+display: inline-block;
+position: absolute;
+top: 0;
+left: 0;
+padding: 10px 15px;
+text-shadow: 0 1px 0 var(--shade);
+background: #7AB893;
+transition: all .4s ease-in-out;
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+transform-origin: left bottom;
+z-index: 99;
+}
+.gate + label:before, .gate + label:after {
+content: "";
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+border-radius: 3px;
+background: var(--light);
+transform-origin: left bottom;
+transition: all .4s ease-in-out;
+pointer-events: none;
+z-index: -1;
+}
+.gate + label:before {
+background: rgba(3, 36, 41, 0.1);
+z-index: -2;
+right: 20%;
+}
+
+span:nth-child(2) .gate {
+text-indent: 85px;
+}
+
+span:nth-child(2) .gate:focus,
+span:nth-child(2) .gate:active {
+text-indent: 0;
+}
+
+.gate:focus,
+.gate:active {
+color: #377D6A;
+text-indent: 0;
+background: #fff;
+border-top-right-radius: 3px;
+border-bottom-right-radius: 3px;
+}
+.gate:focus::-webkit-input-placeholder,
+.gate:active::-webkit-input-placeholder {
+color: #aaa;
+}
+.gate:focus + label,
+.gate:active + label {
+transform: rotate(-66deg);
+border-radius: 3px;
+}
+.gate:focus + label:before,
+.gate:active + label:before {
+transform: rotate(10deg);
+}
+
+
+
+div.row>button {
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color:#efefef;
+  font-weight: 400;
+  background: var(--light);
+  padding-top:5px; 
+  padding-right: 15px; 
+  padding-bottom: 5px ;
+  padding-left: 15px;
+  transition: 0.2s;
+  box-shadow: 10px 10px 5px var(--shade);
+}
+div.row>button:hover{
+  padding: 10px 20px 10px 20px  ;
+  background:var(--white) ;
+  color:var(--darker) ;
+}
+
+button:focus {
+  outline:0;
+}
+

@@ -4,6 +4,8 @@ import fire from '../firebase';
 import { async } from 'q';
 import axios from 'axios';
 import moment from 'moment'
+import './register.css';
+import FileUploadProgress from 'react-fileupload-progress';
 
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dwsbzomzq/upload';
 const CLOUDINARY_UPLOAD_PRESET = 'hkohzhgl';
@@ -17,7 +19,8 @@ class NewAppartment extends Component {
             price: "",
             type: "",
             description: "",
-            url: ''
+            url: '',
+            show: false
         }
     }
     handleInput = async (e) => {
@@ -44,6 +47,7 @@ class NewAppartment extends Component {
         }
         console.log(app)
         axios.post("http://localhost:5000/addAppartment", app)
+        this.showPopUp()
     }
 
     imgHandler = (e) => {
@@ -62,49 +66,69 @@ class NewAppartment extends Component {
         }).then(async function (res) {
             console.log(res.data.secure_url)
             return res.data.secure_url
-        }).then(url =>{
-            this.setState({url})
+        }).then(url => {
+            this.setState({ url })
             console.log(this.state.url)
         })
     }
-
+    showPopUp = () => {
+        this.setState({ show: true })
+        setTimeout(() => { this.setState({ show: false }) }, 8000)
+    }
     render() {
         return (
-            <div className="login-container">
-                <div>
-                    <p>Rooms :</p>
-                    <input name="rooms" type="text" name="rooms" onChange={this.handleInput} placeholder="Enter Room Number" />
+            <div className="putData">
+                <div className="question">
+                    <input name="rooms" type="text" autoComplete="off" name="rooms" onChange={this.handleInput} required />
+                    <label>Rooms</label>
                 </div>
-                <div>
-                    <p>Location :</p>
-                    <input name="location" type="text" onChange={this.handleInput} placeholder="Enter The Location" />
+
+                <div className="question">
+                    <input name="location" type="text" autoComplete="off" onChange={this.handleInput} required />
+                    <label>Location</label>
                 </div>
-                <div>
-                    <p>Price :</p>
-                    <input name="price" type="text" onChange={this.handleInput} placeholder="Enter your Price" />
+
+                <div className="question">
+                    <input name="price" type="nubmer" autoComplete="off" onChange={this.handleInput} required />
+                    <label>price</label>
+
                 </div>
-                <div>
-                    <label>
-                        <input type="radio" name="type" onChange={this.handleInput} value="rent" />
-                        <span>Rent</span>
+
+                <div className="radio-button">
+                    <label className="radio">
+                        <input type="radio" name="type" value="1" onChange={this.handleInput} value="rent" />
+                        <span>Rent:</span>
                     </label>
-                    <label>
-                        <input type="radio" name="type" onChange={this.handleInput} value="sell" />
+
+                    <label className="radio">
+                        <input type="radio" name="type" value="2" onChange={this.handleInput} value="sell" />
                         <span>Sell</span>
                     </label>
-                    <div>
-                        <p>Description :</p>
-                        <input name="description" type="text" onChange={this.handleInput} placeholder="A short description" />
-                        <input type="file" onChange={this.imgHandler} />
-                    </div>
-                    {/* <input type="radio" name="rent" onChange={this.handleInput} value="rent" />
-                    <p>For Sell </p>
-                    <input type="radio" name="sell" onChange={this.handleInput} value="sell" /> */}
+                </div>
+
+
+                <div className="question">
+                    <input name="description" type="text" autoComplete="off" onChange={this.handleInput} required />
+                    <label>description</label>
+                </div>
+
+
+                <div className="addFile">
+                    <input type="file" onChange={this.imgHandler} />
                 </div>
                 <button onClick={this.addAppartment} className="waves-effect waves-light btn">Add your Appartment!</button>
-
+                {this.state.show ? <div className="popUp"> Appartment added successfully! </div> : null}
             </div >
         );
     }
 }
 export default NewAppartment;
+
+{/* <div>
+    <FileUploadProgress key='ex1' url='https://api.cloudinary.com/v1_1/dwsbzomzq/upload'
+        onProgress={(e, request, progress) => { console.log('progress', e, request, progress); }}
+        onLoad={(e, request) => { console.log('load', e, request); }}
+        onError={(e, request) => { console.log('error', e, request); }}
+        onAbort={(e, request) => { console.log('abort', e, request); }}
+    />
+</div> */}
