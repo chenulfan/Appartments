@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import ReactDOM from "react-dom";
 import { Gallery, GalleryImage } from "react-gesture-gallery";
 
-const images = ["https://images.unsplash.com/photo-1437326401470-c3bf383e201e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-                "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-                "https://images.unsplash.com/photo-1506422748879-887454f9cdff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-                "https://images.unsplash.com/uploads/1413142012358a3b38d01/316f8e75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-                "https://images.unsplash.com/photo-1419675871098-db2745078906?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjIxMTIzfQ&auto=format&fit=crop&w=968&q=80"]
+const images = ["https://res.cloudinary.com/dwsbzomzq/image/upload/v1566819583/shhjdipwxntzrpohznd0.jpg",
+                "https://res.cloudinary.com/dwsbzomzq/image/upload/v1566750807/sn8jlqz9b4lit7qbb6pu.jpg",
+                "https://images.unsplash.com/photo-1430285561322-7808604715df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+                "https://images.unsplash.com/photo-1565297032488-90722f09db62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80",
+                "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=375&q=80"]
 
 function SpinningPic() {
     const [index, setIndex] = React.useState(0);

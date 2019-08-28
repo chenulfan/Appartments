@@ -21,7 +21,7 @@ class Rent extends Component {
         const appartments = this.state.appartments
         return (
 
-            <div>
+            <div className="apartment-container">
                  {appartments.filter(a => a.type==="rent").map( a => <Appartment appartment = {a} />)} 
             </div>
         )

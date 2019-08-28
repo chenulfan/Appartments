@@ -23,7 +23,7 @@ class Buy extends Component {
         return (
             <div>
                 {/* <SearchBar appartments={this.state.appartments} /> */}
-                <div className="app-list-container">
+                <div className="apartment-container">
                     {appartments.filter(a => a.type === "sell").map(a => <Appartment appartment={a} />)}
                 </div>
             </div>

@@ -8,11 +8,15 @@ class FavAppartment extends Component {
         super(props)
         this.state = {
             owner_id: props.appartment.owner_id,
-            contact: {}
+            contact: {},
+            showContact: false,
+            showDescription: false,
+            classname: ''
         }
     }
     componentDidMount = async () => {
         const contact = await this.getContactFromDB()
+        console.log(contact)
         console.log(contact.data[0])
         this.setState({ contact: contact.data[0] })
 
@@ -25,39 +29,67 @@ class FavAppartment extends Component {
     }
     removeFromFav = async () => {
         const id = this.props.appartment.id
-        Axios.get(`http://localhost:5000/remove/${id}`)
+        Axios.get(`/remove/${id}`)
     }
+    showContact = async () => {
+        await this.setState({ showContact: !this.state.showContact })
+        if (this.state.showContact)
+            this.setState({ classname: "showContact" })
+        else if (this.state.showDescription)
+            this.setState({ classname: "showDescription" })
+        else
+            this.setState({ classname: '' })
+    }
+    showDescription = async () => {
+        await this.setState({ showDescription: !this.state.showDescription })
+        const boxStyle = document.getElementsByClassName("apartment-box")[0]
+        if (this.state.showDescription && this.state.showContact)
+            this.setState({ classname: "showBoth" })
+        else if (this.state.showDescription)
+            this.setState({ classname: "showDescription" })
+        else if (this.state.showContact)
+            this.setState({ classname: "showContact" })
+        else
+            this.setState({ classname: '' })
+
+    }
+
     render() {
         const appartment = this.props.appartment
         // console.log(this.props.appartment.id)
         // console.log(this.state.contact)
         return (
-            <div className="apartment">
-                <div className="row-picture-data-grid">
-                    <div className="apartmentPicture">
-                        <img src={appartment.img} with='200px' height='200px' />
-                    </div>
 
-                    <div className="apartmentData">
+            <div className={`apartment-box ${this.state.classname}`}>
 
-                        <button onClick={this.removeFromFav}> X</button>
-                        <span> Price: {appartment.price} </span>
-                        <span> Rooms: {appartment.rooms} </span>
-                        <span> Adress: {appartment.location} </span>
-                        {this.state.contact ? <div>
-                            <div> Email:  {this.state.contact.email} </div>
-                            <div> name:  {this.state.contact.firstName} {this.state.contact.lastName} </div>
-                            <div> phone:  {this.state.contact.phone} </div>
-                        </div> : null}
-                        <span> Uploaded: {appartment.uploaded}  </span>
-
-                    </div>
+                <div >
+                    <img className="apartmentPicture" src={appartment.img} />
                 </div>
 
-                <span> Description:
-                <div>  {appartment.description} </div>
-                </span>
+                <div className="row-grid-appartment rooms"> {appartment.rooms} rooms </div>
+
+                <div className="row-grid-appartment"> {appartment.location} </div>
+
+                <div className="row-grid-appartment">  {appartment.price}$</div>
+
+                {this.state.contact && this.state.showContact ? <div className="contact-info" onClick={this.showContact}> Contact Info
+                    <div className="row-grid-appartment"> Email:  {this.state.contact.email} </div>
+                    <div className="row-grid-appartment"> name:  {this.state.contact.firstName} {this.state.contact.lastName} </div>
+                    <div className="row-grid-appartment"> phone:  {this.state.contact.phone} </div>
+                </div> : <div className="contact-info" onClick={this.showContact}> Contact Info </div>}
+
+                {/* <span> Uploaded: {appartment.uploaded}  </span> */}
+
+                {this.state.showDescription ?
+                    <div onClick={this.showDescription} className="row-grid-appartment description">  description:
+                    <div>  {appartment.description} </div>
+                    </div>
+                    :
+                    <div onClick={this.showDescription} className="row-grid-appartment description">  description: </div>
+                }
             </div>
+
+
         )
     }
 }

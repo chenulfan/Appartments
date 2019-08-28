@@ -151,3 +151,77 @@ h2{
   background-color: rgba(255, 213, 158, 0.714);
   color:black;
  }
+ .apartment-container{
+   display:grid;
+   grid-template-columns:  1fr 1fr 1fr 1fr;
+ }
+ .apartment-box{
+  display:grid;
+  grid-template-rows:  155px 15px 20px 30px 20px 20px ;
+  margin: 15px;
+  background: whitesmoke;
+  padding: 10px;
+  border-radius:12px;
+  position: relative;
+  box-shadow: 0 6px 10px rgb(95, 88, 88);
+  /* overflow-x: scroll; */
+ }
+ .row-grid-appartment{
+   color: black;
+ }
+ .apartmentPicture{
+   width: 400px;
+   height: 155px;
+   border-radius: 20px;
+ }
+ .rooms{
+   color: (0,0,0,0.6);
+   font-size: 0.8em;
+ }
+ .contact-info{
+   color:rgb(90, 89, 89);
+   font-weight: 600;
+   cursor: pointer;
+ }
+ .showContact{
+  grid-template-rows:  155px 15px 20px 30px 100px;
+ }
+ .showDescription{
+   grid-template-rows: 155px 15px 20px 30px 20px 100px;
+ }
+ .showBoth{
+   grid-template-rows: 155px 15px 20px 30px 100px 100px;
+ }
+ .dontShowBoth{
+  grid-template-rows:  155px 15px 20px 30px 20px 20px ;
+ }
+ .pa1{
+   width: 150px;
+ }
+
+.fa-star{
+  color: rgb(255, 211, 66);
+  z-index: 1;
+  position: absolute;
+  margin: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.fa-star:active{
+  transform: translateY(2px);
+}
+
+
+@media only screen and (max-width:900px) {
+  /* For tablets: */
+  .apartment-container {
+    grid-template-columns: 1fr 1fr;
+  }
+ }
+
+ @media only screen and (max-width:600px) {
+  /* For mobile phones: */
+  .apartment-container {
+    grid-template-columns: 1fr;
+  }
+ }
