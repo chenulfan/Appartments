@@ -6,7 +6,7 @@ import fire from './firebase';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { observer, inject } from 'mobx-react'
 import Links from './Components/Links';
-import LandingPage from './Components/Home/LandingPage';
+import LandingPage from './Components/LandingPage';
 // import Something from './Components/Something';
 import Login from './Components/Login'
 import Register from './Components/Register';

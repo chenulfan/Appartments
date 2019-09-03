@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Axios from 'axios';
 import Appartment from './Appartment';
-import SearchBar from './SearchBar'
+
 
 class Buy extends Component {
     constructor() {
